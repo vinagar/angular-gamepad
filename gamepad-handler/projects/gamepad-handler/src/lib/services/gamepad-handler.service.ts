@@ -6,7 +6,9 @@ import { GamepadHandlerEvent } from '../enums/gamepadHandlerEvent';
 
 declare var window: any;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GamepadHandlerService extends EventEmitter {
   /**
    * Decides whether next poll has to be scheduled or not.
@@ -173,7 +175,7 @@ export class GamepadHandlerService extends EventEmitter {
                   ? GamepadHandlerEvent.MOVE
                   : GamepadHandlerEvent.MOVE_STOPPED;
               previous.value = value;
-              this.emit(eventToFire, connectedDeviceIndex, buttonId, value);
+              // this.emit(eventToFire, connectedDeviceIndex, buttonId, value);
             }
             break;
           default:
@@ -181,7 +183,7 @@ export class GamepadHandlerService extends EventEmitter {
             if (buttonState || previousButtonsOfCurrentGamepad[buttonId].pressed) {
               const state = buttonState ? GamepadHandlerEvent.PRESSED : GamepadHandlerEvent.RELEASED;
               previousButtonsOfCurrentGamepad[buttonId].pressed = buttonState;
-              this.emit(state, connectedDeviceIndex, buttonId);
+              // this.emit(state, connectedDeviceIndex, buttonId);
             }
             break;
         }
@@ -245,7 +247,7 @@ export class GamepadHandlerService extends EventEmitter {
             prevStateOfAxes[axisId + 1] = yValue;
           }
 
-          this.emit(eventToFire, connectedDeviceIndex, axisId, { x: xValue, y: yValue });
+          // this.emit(eventToFire, connectedDeviceIndex, axisId, { x: xValue, y: yValue });
         }
       }
     } else {
@@ -286,7 +288,7 @@ export class GamepadHandlerService extends EventEmitter {
           this.gamepadReady = anyDeviceConnected;
 
           // Emit the disconnected event.
-          this.emit(GamepadHandlerEvent.DISCONNECTED, i);
+          // this.emit(GamepadHandlerEvent.DISCONNECTED, i);
         }
 
         if (rawGamepads[i] && rawGamepads[i].mapping === 'standard') {
@@ -295,7 +297,7 @@ export class GamepadHandlerService extends EventEmitter {
             this.previousGamepadState[i] = rawGamepads[i].connected;
 
             // Emit the connected event.
-            this.emit(GamepadHandlerEvent.CONNECTED, i, rawGamepads[i]);
+            // this.emit(GamepadHandlerEvent.CONNECTED, i, rawGamepads[i]);
 
             setTimeout(() => {
               this.gamepadReady = true;

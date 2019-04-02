@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { GamepadHandlerService } from 'gamepad-handler';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
