@@ -1,0 +1,23 @@
+export const enum GamepadButtons {
+  // Buttons
+  FACE_BUTTON_DOWN = 0,
+  FACE_BUTTON_RIGHT = 1,
+  FACE_BUTTON_LEFT = 2,
+  FACE_BUTTON_UP = 3,
+  LEFT_BUMPER = 4,
+  RIGHT_BUMPER = 5,
+  LEFT_TRIGGER = 6,
+  RIGHT_TRIGGER = 7,
+  SELECT_OR_BACK = 8,
+  START_OR_FORWARD = 9,
+  LEFT_STICK_PRESSED = 10,
+  RIGHT_STICK_PRESSED = 11,
+  DPAD_UP = 12,
+  DPAD_DOWN = 13,
+  DPAD_LEFT = 14,
+  DPAD_RIGHT = 15,
+
+  // Axes
+  LEFT_STICK = 0,
+  RIGHT_STICK = 2
+}
